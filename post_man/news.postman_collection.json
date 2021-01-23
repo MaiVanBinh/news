@@ -231,7 +231,7 @@
 							}
 						},
 						"url": {
-							"raw": "{{url}}/auth/categories/1?",
+							"raw": "{{url}}/auth/categories/1",
 							"host": [
 								"{{url}}"
 							],
@@ -243,7 +243,8 @@
 							"query": [
 								{
 									"key": "",
-									"value": null
+									"value": null,
+									"disabled": true
 								}
 							]
 						}
@@ -336,7 +337,8 @@
 								"1",
 								"unlink"
 							]
-						}
+						},
+						"description": "post kế nối với image\r\ngọi api này để xóa kết nối của post với image"
 					},
 					"response": []
 				},
@@ -572,7 +574,7 @@
 					"response": []
 				},
 				{
-					"name": "fetch post only (title) or (category) or (title+cate) or (cate+title+datefrom-dateto)",
+					"name": "fetch post",
 					"request": {
 						"method": "GET",
 						"header": [],
@@ -622,7 +624,8 @@
 							{
 								"key": "Authorization",
 								"value": "Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpZCI6IjEiLCJlbWFpbCI6Im1haXZhbmJpbmgxMzIxOTk5QGdtYWlsLmNvbSIsImlhdCI6MTYxMTQxNDkwNiwiZXhwIjoxNjExNDE4NTA2fQ.GgKk0wAnt4Invb5TyqSG4qNJbmu3pN0kzkFY0wviSvk",
-								"type": "text"
+								"type": "text",
+								"disabled": true
 							}
 						],
 						"url": {
