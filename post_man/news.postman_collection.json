@@ -39,7 +39,22 @@
 					"name": "create user",
 					"request": {
 						"method": "POST",
-						"header": [],
+						"header": [
+							{
+								"key": "",
+								"value": "Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpZCI6IjIiLCJlbWFpbCI6Im1haXZhbmJpbmgxOUBnbWFpbC5jb20iLCJpYXQiOjE2MTExMjczNjMsImV4cCI6MTYxMTEzMDk2M30.bK2RRCwwKVAk-IBjJLOh5o1LwLRIdSP9D3aqCitQ8_0",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"username\": \"VanBinh\",\r\n    \"email\": \"maivanbinh19@gmail.com\",\r\n    \"password\": \"testtest\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
 						"url": {
 							"raw": "{{url}}/auth/users/sign-up",
 							"host": [
@@ -59,8 +74,24 @@
 					"request": {
 						"method": "POST",
 						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"email\": \"maivanbinh1321999@gmail.com\",\r\n    \"password\": \"testtest\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
 						"url": {
-							"raw": ""
+							"raw": "{{url}}/users/login",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"users",
+								"login"
+							]
 						}
 					},
 					"response": []
@@ -77,13 +108,13 @@
 						"header": [
 							{
 								"key": "Authorization",
-								"value": "Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpZCI6IjIiLCJlbWFpbCI6Im1haXZhbmJpbmgxOUBnbWFpbC5jb20iLCJpYXQiOjE2MTExMjczNjMsImV4cCI6MTYxMTEzMDk2M30.bK2RRCwwKVAk-IBjJLOh5o1LwLRIdSP9D3aqCitQ8_0",
+								"value": "Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpZCI6IjEiLCJlbWFpbCI6Im1haXZhbmJpbmgxMzIxOTk5QGdtYWlsLmNvbSIsImlhdCI6MTYxMTEyOTc0NSwiZXhwIjoxNjExMTMzMzQ1fQ.Mlr_2T8Aa20XZVwYMZ-g_MWVsb16FjoThzcVTYgFyk8",
 								"type": "text"
 							}
 						],
 						"body": {
 							"mode": "raw",
-							"raw": "{\r\n    \"title\": \"asd\"\r\n}",
+							"raw": "{\r\n    \"title\": \"binh\"\r\n}",
 							"options": {
 								"raw": {
 									"language": "json"
@@ -116,7 +147,7 @@
 						"method": "GET",
 						"header": [],
 						"url": {
-							"raw": "{{url}}/categories?title=&from=2020-1-21&to=2021-1-21&page=2&limit=2",
+							"raw": "{{url}}/categories?title=sd&from=2020-1-21&to=2021-1-21&page=1&limit=2",
 							"host": [
 								"{{url}}"
 							],
@@ -126,7 +157,7 @@
 							"query": [
 								{
 									"key": "title",
-									"value": ""
+									"value": "sd"
 								},
 								{
 									"key": "from",
@@ -138,11 +169,16 @@
 								},
 								{
 									"key": "page",
-									"value": "2"
+									"value": "1"
 								},
 								{
 									"key": "limit",
 									"value": "2"
+								},
+								{
+									"key": "isAll",
+									"value": null,
+									"disabled": true
 								}
 							]
 						}
@@ -153,7 +189,13 @@
 					"name": "delete categories",
 					"request": {
 						"method": "DELETE",
-						"header": [],
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpZCI6IjEiLCJlbWFpbCI6Im1haXZhbmJpbmgxMzIxOTk5QGdtYWlsLmNvbSIsImlhdCI6MTYxMTEzNTcwNiwiZXhwIjoxNjExMTM5MzA2fQ.jLig_QxQ_tu8dgo4oly6H_iQbRdTwTqQMHb2f8evUfw",
+								"type": "text"
+							}
+						],
 						"url": {
 							"raw": "{{url}}/auth/categories/1",
 							"host": [
@@ -217,7 +259,23 @@
 					"name": "create",
 					"request": {
 						"method": "POST",
-						"header": [],
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpZCI6IjEiLCJlbWFpbCI6Im1haXZhbmJpbmgxMzIxOTk5QGdtYWlsLmNvbSIsImlhdCI6MTYxMTM4NDc1NSwiZXhwIjoxNjExMzg4MzU1fQ.HpzKFI5PwQEQNEffD8l6W9rpEW6VLpI7d-nCfGlcHtw",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "formdata",
+							"formdata": [
+								{
+									"key": "image",
+									"type": "file",
+									"src": "/D:/HinhAnh/android.png"
+								}
+							]
+						},
 						"url": {
 							"raw": "{{url}}/auth/images",
 							"host": [
@@ -235,9 +293,23 @@
 					"name": "delete",
 					"request": {
 						"method": "DELETE",
-						"header": [],
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpZCI6IjEiLCJlbWFpbCI6Im1haXZhbmJpbmgxMzIxOTk5QGdtYWlsLmNvbSIsImlhdCI6MTYxMTI4OTA3MCwiZXhwIjoxNjExMjkyNjcwfQ.yulYUoIBOX26EdDBMWs_WjyTtxHwrQ8sTNs1wtO7SBQ",
+								"type": "text"
+							}
+						],
 						"url": {
-							"raw": ""
+							"raw": "{{url}}/auth/images/10",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"auth",
+								"images",
+								"10"
+							]
 						}
 					},
 					"response": []
@@ -246,7 +318,13 @@
 					"name": "unlink",
 					"request": {
 						"method": "GET",
-						"header": [],
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpZCI6IjEiLCJlbWFpbCI6Im1haXZhbmJpbmgxMzIxOTk5QGdtYWlsLmNvbSIsImlhdCI6MTYxMTIwMDU0NSwiZXhwIjoxNjExMjA0MTQ1fQ.yzmfIDr6V-l65S8DIPpiFNia14x-2j1KvDDyDEye7Vs",
+								"type": "text"
+							}
+						],
 						"url": {
 							"raw": "{{url}}/auth/images/1/unlink",
 							"host": [
@@ -269,12 +347,12 @@
 						"header": [
 							{
 								"key": "Authorization",
-								"value": "Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpZCI6IjEiLCJlbWFpbCI6Im1haXZhbmJpbmgxMzIxOTk5QGdtYWlsLmNvbSIsImlhdCI6MTYxMTI4OTA3MCwiZXhwIjoxNjExMjkyNjcwfQ.yulYUoIBOX26EdDBMWs_WjyTtxHwrQ8sTNs1wtO7SBQ",
+								"value": "Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpZCI6IjEiLCJlbWFpbCI6Im1haXZhbmJpbmgxMzIxOTk5QGdtYWlsLmNvbSIsImlhdCI6MTYxMTM5NjEyNSwiZXhwIjoxNjExMzk5NzI1fQ.wn0GotRbI_b-c4pQDJ-6imEM1Mwl7drkMuqb2vOj1mw",
 								"type": "text"
 							}
 						],
 						"url": {
-							"raw": "{{url}}/auth/images?page=1&limit=2&name=\"asdasda\"",
+							"raw": "{{url}}/auth/images?page=1&limit=2&name=1611330200_android",
 							"host": [
 								"{{url}}"
 							],
@@ -293,7 +371,7 @@
 								},
 								{
 									"key": "name",
-									"value": "\"asdasda\""
+									"value": "1611330200_android"
 								}
 							]
 						}
@@ -306,7 +384,14 @@
 						"method": "GET",
 						"header": [],
 						"url": {
-							"raw": ""
+							"raw": "{{url}}/assets/1611290790_android.png",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"assets",
+								"1611290790_android.png"
+							]
 						}
 					},
 					"response": []
@@ -320,16 +405,38 @@
 					"name": "delete post",
 					"request": {
 						"method": "DELETE",
-						"header": [],
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpZCI6IjEiLCJlbWFpbCI6Im1haXZhbmJpbmgxMzIxOTk5QGdtYWlsLmNvbSIsImlhdCI6MTYxMTM4MDY4MywiZXhwIjoxNjExMzg0MjgzfQ.hoWp0LprUHcizs24tdPcLOQsXLkSFuiCCAdZlw_--xc",
+								"type": "text"
+							},
+							{
+								"key": "",
+								"value": "",
+								"type": "text",
+								"disabled": true
+							}
+						],
+						"body": {
+							"mode": "formdata",
+							"formdata": [
+								{
+									"key": "images[0]",
+									"value": "",
+									"type": "text"
+								}
+							]
+						},
 						"url": {
-							"raw": "{{url}}/auth/posts/1",
+							"raw": "{{url}}/auth/posts/19",
 							"host": [
 								"{{url}}"
 							],
 							"path": [
 								"auth",
 								"posts",
-								"1"
+								"19"
 							]
 						}
 					},
@@ -356,7 +463,7 @@
 								},
 								{
 									"key": "title",
-									"value": "\"",
+									"value": "asd,lm zxc",
 									"type": "text"
 								},
 								{
@@ -371,7 +478,7 @@
 								},
 								{
 									"key": "category",
-									"value": "1",
+									"value": "2",
 									"type": "text"
 								},
 								{
@@ -414,7 +521,7 @@
 						],
 						"body": {
 							"mode": "raw",
-							"raw": "{\r\n    \"title\": \"we\",\r\n    \"category\": 3,\r\n    \"description\": \"Asdasdasd123781762378!@#!@^%&%*&^*\",\r\n    \"content\": \"Asdasdasd123781762378!@#!@^%&%*&^*\",\r\n    \"imageAdd\": [13, 12],\r\n    \"imagesRemove\": [11]\r\n}",
+							"raw": "{\r\n    \"title\": \"we\",\r\n    \"category\": 3,\r\n    \"description\": \"Asdasdasd123781762378!@#!@^%&%*&^*\",\r\n    \"content\": \"Asdasdasd123781762378!@#!@^%&%*&^*\",\r\n    \"imageAdd\": [11, 12],\r\n    \"imagesRemove\": [13]\r\n}",
 							"options": {
 								"raw": {
 									"language": "json"
@@ -441,7 +548,14 @@
 						"method": "GET",
 						"header": [],
 						"url": {
-							"raw": ""
+							"raw": "{{url}}/posts/21",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"posts",
+								"21"
+							]
 						}
 					},
 					"response": []
@@ -449,14 +563,23 @@
 				{
 					"name": "publich post",
 					"request": {
-						"method": "GET",
+						"method": "PUT",
 						"header": [
 							{
 								"key": "Authorization",
-								"value": "Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpZCI6IjEiLCJlbWFpbCI6Im1haXZhbmJpbmgxMzIxOTk5QGdtYWlsLmNvbSIsImlhdCI6MTYxMTM4NzYzNCwiZXhwIjoxNjExMzkxMjM0fQ.xFapl6UuiZrb1cska1U4b928HQWrJ2fIRbGfe03963c",
+								"value": "Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpZCI6IjEiLCJlbWFpbCI6Im1haXZhbmJpbmgxMzIxOTk5QGdtYWlsLmNvbSIsImlhdCI6MTYxMTQxMTMwNywiZXhwIjoxNjExNDE0OTA3fQ.1t6XSo7MUKRls2ybvS1yRf0CcZjIZ7MDOCRhJfwDYAk",
 								"type": "text"
 							}
 						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"is_public\": false\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
 						"url": {
 							"raw": "{{url}}/auth/posts/21/public",
 							"host": [
@@ -478,7 +601,43 @@
 						"method": "GET",
 						"header": [],
 						"url": {
-							"raw": ""
+							"raw": "{{url}}/posts?limit=2&page=1&category=[1,2]&title=ádasd&dateFrom=2020-1-21&dateTo=2020-1-21&title=we",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"posts"
+							],
+							"query": [
+								{
+									"key": "limit",
+									"value": "2"
+								},
+								{
+									"key": "page",
+									"value": "1"
+								},
+								{
+									"key": "category",
+									"value": "[1,2]"
+								},
+								{
+									"key": "title",
+									"value": "ádasd"
+								},
+								{
+									"key": "dateFrom",
+									"value": "2020-1-21"
+								},
+								{
+									"key": "dateTo",
+									"value": "2020-1-21"
+								},
+								{
+									"key": "title",
+									"value": "we"
+								}
+							]
 						}
 					},
 					"response": []
@@ -491,7 +650,10 @@
 				"method": "GET",
 				"header": [],
 				"url": {
-					"raw": ""
+					"raw": "{{url}}",
+					"host": [
+						"{{url}}"
+					]
 				}
 			},
 			"response": []
