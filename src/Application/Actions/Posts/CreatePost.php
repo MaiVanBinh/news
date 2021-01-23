@@ -18,7 +18,8 @@ class CreatePost extends PostsActions
                 "title" => v::notEmpty(),
                 "description" => v::notEmpty(),
                 "content" => v::notEmpty(),
-                'category' => v::digit()
+                'category' => v::digit(),
+                'is_publish' => v::boolType()
             ]);
             if ($this->validator->failed()) {
                 $responseMessage = $this->validator->errors;
@@ -29,7 +30,8 @@ class CreatePost extends PostsActions
             $category = CustomRequestHandler::getParam($this->request, "category");
             $description = CustomRequestHandler::getParam($this->request, "description");
             $content = CustomRequestHandler::getParam($this->request, "content");
-
+            $is_publish = CustomRequestHandler::getParam($this->request, "is_publish");
+            
             // get list images
             $images = CustomRequestHandler::getParam($this->request, "images");
             $imagesExists = [];
@@ -41,7 +43,7 @@ class CreatePost extends PostsActions
                 }
             }
             // create new Post
-            $newId = $this->postsServices->createPost($title, $category, $description, $content, $token['id']);
+            $newId = $this->postsServices->createPost($title, $category, $description, $content, $token['id'], $is_publish);
             
             // link image with post
             for($i = 0; $i < count($imagesExists); $i++) {

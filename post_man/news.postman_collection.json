@@ -384,13 +384,15 @@
 						"method": "GET",
 						"header": [],
 						"url": {
-							"raw": "{{url}}/assets/1611290790_android.png",
+							"raw": "http://localhost:8080/images/1611330200_android",
+							"protocol": "http",
 							"host": [
-								"{{url}}"
+								"localhost"
 							],
+							"port": "8080",
 							"path": [
-								"assets",
-								"1611290790_android.png"
+								"images",
+								"1611330200_android"
 							]
 						}
 					},
@@ -449,44 +451,18 @@
 						"header": [
 							{
 								"key": "Authorization",
-								"value": "Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpZCI6IjEiLCJlbWFpbCI6Im1haXZhbmJpbmgxMzIxOTk5QGdtYWlsLmNvbSIsImlhdCI6MTYxMTM4NzYzNCwiZXhwIjoxNjExMzkxMjM0fQ.xFapl6UuiZrb1cska1U4b928HQWrJ2fIRbGfe03963c",
+								"value": "Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpZCI6IjEiLCJlbWFpbCI6Im1haXZhbmJpbmgxMzIxOTk5QGdtYWlsLmNvbSIsImlhdCI6MTYxMTQxNTM3NiwiZXhwIjoxNjExNDE4OTc2fQ.gY5arTGbSf3CKaRqyZAyPg5XSjuEi8sm6WkKd6VMz6Q",
 								"type": "text"
 							}
 						],
 						"body": {
-							"mode": "formdata",
-							"formdata": [
-								{
-									"key": "images[0]",
-									"value": "http://localhost:8080/images/1611330200_android",
-									"type": "text"
-								},
-								{
-									"key": "title",
-									"value": "asd,lm zxc",
-									"type": "text"
-								},
-								{
-									"key": "description",
-									"value": "asdasd's'/;asd\"",
-									"type": "text"
-								},
-								{
-									"key": "content",
-									"value": "<div id=\"divfirst\"><p>Chủ tịch Quốc hội Nguyễn Thị Kim Ngân, Chủ tịch Hội đồng bầu cử Quốc gia chủ trì hội nghị. Thủ tướng Nguyễn Xuân Phúc cùng nhiều đồng chí lãnh đạo Đảng, Nhà nước và các đại biểu tham dự.&nbsp;</p>\n\n<figure class=\"image\"><img alt=\"Chú thích ảnh\" src=\"https://cdnmedia.baotintuc.vn/Upload/c2tvplmdloSDblsn03qN2Q/files/2021/01/21/anh/cong-tac-bau-cu-dbqh-khoa-xv-hdnd-21121-.jpg\">\n<figcaption>Tổng Bí thư, Chủ tịch nước Nguyễn Phú Trọng phát biểu chỉ đạo Hội nghị. Ảnh: Trí Dũng/TTXVN</figcaption>\n</figure>\n\n<figure class=\"image\"><img alt=\"Chú thích ảnh\" src=\"https://cdnmedia.baotintuc.vn/Upload/c2tvplmdloSDblsn03qN2Q/files/2021/01/21/anh/cong-tac-bau-cu-dbqh-khoa-xv-hdnd-21121-3.jpg\">\n<figcaption></figcaption>\n</figure>\n\n<figure class=\"image\"><img alt=\"Chú thích ảnh\" src=\"https://cdnmedia.baotintuc.vn/Upload/c2tvplmdloSDblsn03qN2Q/files/2021/01/21/anh/cong-tac-bau-cu-dbqh-khoa-xv-hdnd-21121-1.jpg\">\n<figcaption>Tổng Bí thư, Chủ tịch nước Nguyễn Phú Trọng phát biểu chỉ đạo Hội nghị. Ảnh: Trí Dũng/TTXVN</figcaption>\n</figure>\n\n<figure class=\"image\"><img alt=\"Chú thích ảnh\" height=\"519\" src=\"https://cdnmedia.baotintuc.vn/Upload/c2tvplmdloSDblsn03qN2Q/files/2021/01/21/anh/cong-tac-bau-cu-dbqh-khoa-xv-hdnd-21121-5.jpg\" width=\"665\">\n<figcaption>Chủ tịch Quốc hội Nguyễn Thị Kim Ngân, Chủ tịch Hội đồng bầu cử Quốc gia phát biểu tại Hội nghị. Ảnh: Trí Dũng/TTXVN.</figcaption>\n</figure>\n\n</div>",
-									"type": "text"
-								},
-								{
-									"key": "category",
-									"value": "2",
-									"type": "text"
-								},
-								{
-									"key": "images[1]",
-									"value": "http://localhost:8080/images/1611330200_android",
-									"type": "text"
+							"mode": "raw",
+							"raw": "{\r\n\t\"images\": [\r\n\t\t\"http://localhost:8080/images/1611330200_android\"\r\n\t],\r\n    \"title\": \"asd\",\r\n    \"description\":\"ádsad\",\r\n    \"content\": \"Ádasd\",\r\n    \"category\": 1,\r\n    \"is_publish\": true\r\n}\r\n",
+							"options": {
+								"raw": {
+									"language": "json"
 								}
-							]
+							}
 						},
 						"url": {
 							"raw": "{{url}}/auth/posts",
@@ -573,7 +549,7 @@
 						],
 						"body": {
 							"mode": "raw",
-							"raw": "{\r\n    \"is_public\": false\r\n}",
+							"raw": "{\r\n    \"is_public\": true\r\n}",
 							"options": {
 								"raw": {
 									"language": "json"
@@ -601,7 +577,7 @@
 						"method": "GET",
 						"header": [],
 						"url": {
-							"raw": "{{url}}/posts?limit=2&page=1&category=[1,2]&title=ádasd&dateFrom=2020-1-21&dateTo=2020-1-21&title=we",
+							"raw": "{{url}}/posts?limit=2&page=1&dateFrom=2020-1-21&title=w&dateTo=2021-2-21&category=[3]",
 							"host": [
 								"{{url}}"
 							],
@@ -618,26 +594,87 @@
 									"value": "1"
 								},
 								{
-									"key": "category",
-									"value": "[1,2]"
+									"key": "dateFrom",
+									"value": "2020-1-21"
 								},
 								{
 									"key": "title",
-									"value": "ádasd"
+									"value": "w"
+								},
+								{
+									"key": "dateTo",
+									"value": "2021-2-21"
+								},
+								{
+									"key": "category",
+									"value": "[3]"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "fetch post auth",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpZCI6IjEiLCJlbWFpbCI6Im1haXZhbmJpbmgxMzIxOTk5QGdtYWlsLmNvbSIsImlhdCI6MTYxMTQxNDkwNiwiZXhwIjoxNjExNDE4NTA2fQ.GgKk0wAnt4Invb5TyqSG4qNJbmu3pN0kzkFY0wviSvk",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "{{url}}/auth/posts?limit=2&page=1&title=we&dateFrom=2020-1-21&is_publish=1&dateTo=2022-1-21&category=[1,3]",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"auth",
+								"posts"
+							],
+							"query": [
+								{
+									"key": "limit",
+									"value": "2"
+								},
+								{
+									"key": "page",
+									"value": "1"
+								},
+								{
+									"key": "title",
+									"value": "we"
 								},
 								{
 									"key": "dateFrom",
 									"value": "2020-1-21"
 								},
 								{
-									"key": "dateTo",
-									"value": "2020-1-21"
+									"key": "is_publish",
+									"value": "1"
 								},
 								{
-									"key": "title",
-									"value": "we"
+									"key": "dateTo",
+									"value": "2022-1-21"
+								},
+								{
+									"key": "category",
+									"value": "[1,3]"
 								}
 							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": ""
 						}
 					},
 					"response": []

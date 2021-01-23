@@ -54,6 +54,7 @@ return function(App $app) {
     });
 
     $app->group('/auth/posts', function(Group $group) {
+        $group->get('', \App\Application\Actions\Posts\FetchPostsAuth::class);
         $group->post('', \App\Application\Actions\Posts\CreatePost::class);
         $group->delete('/{id}', \App\Application\Actions\Posts\DeletePost::class);
         $group->put('/{id}', \App\Application\Actions\Posts\UpdatePost::class);
