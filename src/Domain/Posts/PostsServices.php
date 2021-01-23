@@ -107,6 +107,7 @@ class PostsServices
             $images = $db->fetchAll();
             array_push($postsUpdate, [
                 'image' => $images,
+                'is_publish' => $posts[$i]['is_publish'],
                 'id' => $posts[$i]['id'],
                 'title' => $posts[$i]['title'],
                 'content' => $posts[$i]['content'],
