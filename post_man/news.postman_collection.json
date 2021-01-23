@@ -1,0 +1,500 @@
+{
+	"info": {
+		"_postman_id": "037b58fe-177d-4861-b560-e650b2c47276",
+		"name": "news",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "Users",
+			"item": [
+				{
+					"name": "sign_up",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"username\": \"VanBinh\",\r\n    \"email\": \"maivanbinh1321999@gmail.com\",\r\n    \"password\": \"testtest\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{url}}/users/sign-up",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"users",
+								"sign-up"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "create user",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"url": {
+							"raw": "{{url}}/auth/users/sign-up",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"auth",
+								"users",
+								"sign-up"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "login",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"url": {
+							"raw": ""
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "category",
+			"item": [
+				{
+					"name": "create",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpZCI6IjIiLCJlbWFpbCI6Im1haXZhbmJpbmgxOUBnbWFpbC5jb20iLCJpYXQiOjE2MTExMjczNjMsImV4cCI6MTYxMTEzMDk2M30.bK2RRCwwKVAk-IBjJLOh5o1LwLRIdSP9D3aqCitQ8_0",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"title\": \"asd\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{url}}/auth/categories",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"auth",
+								"categories"
+							],
+							"query": [
+								{
+									"key": "",
+									"value": "Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpZCI6IjIiLCJlbWFpbCI6Im1haXZhbmJpbmgxOUBnbWFpbC5jb20iLCJpYXQiOjE2MTExMjczNjMsImV4cCI6MTYxMTEzMDk2M30.bK2RRCwwKVAk-IBjJLOh5o1LwLRIdSP9D3aqCitQ8_0",
+									"disabled": true
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "fetch cate",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{url}}/categories?title=&from=2020-1-21&to=2021-1-21&page=2&limit=2",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"categories"
+							],
+							"query": [
+								{
+									"key": "title",
+									"value": ""
+								},
+								{
+									"key": "from",
+									"value": "2020-1-21"
+								},
+								{
+									"key": "to",
+									"value": "2021-1-21"
+								},
+								{
+									"key": "page",
+									"value": "2"
+								},
+								{
+									"key": "limit",
+									"value": "2"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "delete categories",
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "{{url}}/auth/categories/1",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"auth",
+								"categories",
+								"1"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "update",
+					"request": {
+						"method": "PUT",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpZCI6IjEiLCJlbWFpbCI6Im1haXZhbmJpbmgxMzIxOTk5QGdtYWlsLmNvbSIsImlhdCI6MTYxMTEzNTcwNiwiZXhwIjoxNjExMTM5MzA2fQ.jLig_QxQ_tu8dgo4oly6H_iQbRdTwTqQMHb2f8evUfw",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"title\": \"chi\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{url}}/auth/categories/1?",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"auth",
+								"categories",
+								"1"
+							],
+							"query": [
+								{
+									"key": "",
+									"value": null
+								}
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "images",
+			"item": [
+				{
+					"name": "create",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"url": {
+							"raw": "{{url}}/auth/images",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"auth",
+								"images"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "delete",
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": ""
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "unlink",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{url}}/auth/images/1/unlink",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"auth",
+								"images",
+								"1",
+								"unlink"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "fetch Images",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpZCI6IjEiLCJlbWFpbCI6Im1haXZhbmJpbmgxMzIxOTk5QGdtYWlsLmNvbSIsImlhdCI6MTYxMTI4OTA3MCwiZXhwIjoxNjExMjkyNjcwfQ.yulYUoIBOX26EdDBMWs_WjyTtxHwrQ8sTNs1wtO7SBQ",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "{{url}}/auth/images?page=1&limit=2&name=\"asdasda\"",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"auth",
+								"images"
+							],
+							"query": [
+								{
+									"key": "page",
+									"value": "1"
+								},
+								{
+									"key": "limit",
+									"value": "2"
+								},
+								{
+									"key": "name",
+									"value": "\"asdasda\""
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "get image",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": ""
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Posts",
+			"item": [
+				{
+					"name": "delete post",
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "{{url}}/auth/posts/1",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"auth",
+								"posts",
+								"1"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "create",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpZCI6IjEiLCJlbWFpbCI6Im1haXZhbmJpbmgxMzIxOTk5QGdtYWlsLmNvbSIsImlhdCI6MTYxMTM4NzYzNCwiZXhwIjoxNjExMzkxMjM0fQ.xFapl6UuiZrb1cska1U4b928HQWrJ2fIRbGfe03963c",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "formdata",
+							"formdata": [
+								{
+									"key": "images[0]",
+									"value": "http://localhost:8080/images/1611330200_android",
+									"type": "text"
+								},
+								{
+									"key": "title",
+									"value": "\"",
+									"type": "text"
+								},
+								{
+									"key": "description",
+									"value": "asdasd's'/;asd\"",
+									"type": "text"
+								},
+								{
+									"key": "content",
+									"value": "<div id=\"divfirst\"><p>Chủ tịch Quốc hội Nguyễn Thị Kim Ngân, Chủ tịch Hội đồng bầu cử Quốc gia chủ trì hội nghị. Thủ tướng Nguyễn Xuân Phúc cùng nhiều đồng chí lãnh đạo Đảng, Nhà nước và các đại biểu tham dự.&nbsp;</p>\n\n<figure class=\"image\"><img alt=\"Chú thích ảnh\" src=\"https://cdnmedia.baotintuc.vn/Upload/c2tvplmdloSDblsn03qN2Q/files/2021/01/21/anh/cong-tac-bau-cu-dbqh-khoa-xv-hdnd-21121-.jpg\">\n<figcaption>Tổng Bí thư, Chủ tịch nước Nguyễn Phú Trọng phát biểu chỉ đạo Hội nghị. Ảnh: Trí Dũng/TTXVN</figcaption>\n</figure>\n\n<figure class=\"image\"><img alt=\"Chú thích ảnh\" src=\"https://cdnmedia.baotintuc.vn/Upload/c2tvplmdloSDblsn03qN2Q/files/2021/01/21/anh/cong-tac-bau-cu-dbqh-khoa-xv-hdnd-21121-3.jpg\">\n<figcaption></figcaption>\n</figure>\n\n<figure class=\"image\"><img alt=\"Chú thích ảnh\" src=\"https://cdnmedia.baotintuc.vn/Upload/c2tvplmdloSDblsn03qN2Q/files/2021/01/21/anh/cong-tac-bau-cu-dbqh-khoa-xv-hdnd-21121-1.jpg\">\n<figcaption>Tổng Bí thư, Chủ tịch nước Nguyễn Phú Trọng phát biểu chỉ đạo Hội nghị. Ảnh: Trí Dũng/TTXVN</figcaption>\n</figure>\n\n<figure class=\"image\"><img alt=\"Chú thích ảnh\" height=\"519\" src=\"https://cdnmedia.baotintuc.vn/Upload/c2tvplmdloSDblsn03qN2Q/files/2021/01/21/anh/cong-tac-bau-cu-dbqh-khoa-xv-hdnd-21121-5.jpg\" width=\"665\">\n<figcaption>Chủ tịch Quốc hội Nguyễn Thị Kim Ngân, Chủ tịch Hội đồng bầu cử Quốc gia phát biểu tại Hội nghị. Ảnh: Trí Dũng/TTXVN.</figcaption>\n</figure>\n\n</div>",
+									"type": "text"
+								},
+								{
+									"key": "category",
+									"value": "1",
+									"type": "text"
+								},
+								{
+									"key": "images[1]",
+									"value": "http://localhost:8080/images/1611330200_android",
+									"type": "text"
+								}
+							]
+						},
+						"url": {
+							"raw": "{{url}}/auth/posts",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"auth",
+								"posts"
+							],
+							"query": [
+								{
+									"key": "images",
+									"value": "['a','b']",
+									"disabled": true
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "update post",
+					"request": {
+						"method": "PUT",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpZCI6IjEiLCJlbWFpbCI6Im1haXZhbmJpbmgxMzIxOTk5QGdtYWlsLmNvbSIsImlhdCI6MTYxMTM4NDc1NSwiZXhwIjoxNjExMzg4MzU1fQ.HpzKFI5PwQEQNEffD8l6W9rpEW6VLpI7d-nCfGlcHtw",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"title\": \"we\",\r\n    \"category\": 3,\r\n    \"description\": \"Asdasdasd123781762378!@#!@^%&%*&^*\",\r\n    \"content\": \"Asdasdasd123781762378!@#!@^%&%*&^*\",\r\n    \"imageAdd\": [13, 12],\r\n    \"imagesRemove\": [11]\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{url}}/auth/posts/21",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"auth",
+								"posts",
+								"21"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "fetch post by id",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": ""
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "publich post",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpZCI6IjEiLCJlbWFpbCI6Im1haXZhbmJpbmgxMzIxOTk5QGdtYWlsLmNvbSIsImlhdCI6MTYxMTM4NzYzNCwiZXhwIjoxNjExMzkxMjM0fQ.xFapl6UuiZrb1cska1U4b928HQWrJ2fIRbGfe03963c",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "{{url}}/auth/posts/21/public",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"auth",
+								"posts",
+								"21",
+								"public"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "fetch post only (title) or (category) or (title+cate) or (cate+title+datefrom-dateto)",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": ""
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "get home",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": ""
+				}
+			},
+			"response": []
+		}
+	]
+}
