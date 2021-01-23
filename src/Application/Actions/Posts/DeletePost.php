@@ -19,7 +19,7 @@ class DeletePost extends PostsActions {
                 if(!$id)
                 {
                     $responseMessage = $this->validator->errors;
-                    return $this->respondWithData($responseMessage, 404);
+                    return $this->respondWithData($responseMessage, 400);
                 }
                 $imagesOfPost = $this->assetsServices->fetchAssetByPostId($id);
                 $this->assetsServices->unLinkImagePost($id);

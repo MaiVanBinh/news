@@ -168,15 +168,16 @@ class PostsServices
         $db->execute();
     }
 
-    public function publicPost($id, $userId)
+    public function publicPost($id, $userId, $is_public)
     {
         date_default_timezone_set('Asia/Ho_Chi_Minh');
         $date = date("Y-m-d H:i:s");
-        $sql = "UPDATE posts SET is_publish=true, updated_at=:updated_at, updated_by=:userId where id=:id;";
+        $sql = "UPDATE posts SET is_publish=:is_public, updated_at=:updated_at, updated_by=:userId where id=:id;";
         $db = $this->connection->prepare($sql);
         $db->bindParam(':id', $id, PDO::PARAM_INT);
         $db->bindParam(':updated_at', $date, PDO::PARAM_STR);
         $db->bindParam(':userId', $userId, PDO::PARAM_INT);
+        $db->bindParam(':is_public', $is_public, PDO::PARAM_BOOL);
         $db->execute();
     }
 }

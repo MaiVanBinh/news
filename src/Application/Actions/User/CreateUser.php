@@ -33,7 +33,7 @@ final class CreateUser extends UserAction
             if($this->validator->failed())
             {
                 $responseMessage = $this->validator->errors;
-                return $this->respondWithData($responseMessage, 404);
+                return $this->respondWithData($responseMessage, 400);
             }
             
             $name = CustomRequestHandler::getParam($this->request,"username");

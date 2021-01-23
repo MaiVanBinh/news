@@ -9,7 +9,6 @@ use Psr\Http\Message\ServerRequestInterface as Request;
 
 use App\Application\Actions\Posts\PostsFetchPostById;
 use App\Application\Actions\Posts\FetchPosts;
-use App\Application\Actions\Posts\FetchPostIdentify;
 
 use Slim\Exception\HttpNotFoundException;
 
@@ -58,7 +57,7 @@ return function(App $app) {
         $group->post('', \App\Application\Actions\Posts\CreatePost::class);
         $group->delete('/{id}', \App\Application\Actions\Posts\DeletePost::class);
         $group->put('/{id}', \App\Application\Actions\Posts\UpdatePost::class);
-        $group->get('/{id}/public', \App\Application\Actions\Posts\PublicPost::class);
+        $group->put('/{id}/public', \App\Application\Actions\Posts\PublicPost::class);
     });
 
     $app->get('/images/{fileName}', \App\Application\Actions\Assets\FetchAssetAction::class);
