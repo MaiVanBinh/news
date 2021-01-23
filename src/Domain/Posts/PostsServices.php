@@ -75,7 +75,6 @@ class PostsServices
             $dbCount->bindParam(':dateTo', $dateTo, PDO::PARAM_STR);
         }
         if ($title && $dateFrom && $dateTo) {
-            $categoryString = '(' . join(", ", $category) . ')';
             $sql = "SELECT * FROM posts where is_publish=:is_publish and title like :title and (created_at between :dateFrom and :dateTo) order by id LIMIT :limitPost OFFSET :offset;";
             $titleString = '%' . $title . '%';
             $db = $this->connection->prepare($sql);
@@ -209,7 +208,6 @@ class PostsServices
                 $dbCount->bindParam(':dateTo', $dateTo, PDO::PARAM_STR);
             }
             if ($title && $dateFrom && $dateTo) {
-                $categoryString = '(' . join(", ", $category) . ')';
                 $sql = "SELECT * FROM posts where title like :title and (created_at between :dateFrom and :dateTo) order by id LIMIT :limitPost OFFSET :offset;";
                 $titleString = '%' . $title . '%';
                 $db = $this->connection->prepare($sql);

@@ -17,6 +17,7 @@ class FetchPostsAuth extends PostsActions {
             $dateFrom = array_key_exists('dateFrom', $query) && $query['dateFrom'] ? $query['dateFrom'] : null;
             $dateTo = array_key_exists('dateTo', $query) && $query['dateTo'] ? $query['dateTo'] : null;
             $is_publish = array_key_exists('is_publish', $query) ? $query['is_publish'] : 'all';
+            $is_publish = $is_publish == 'true' ? true : false;
             $posts = $this->postsServices->fetchPostsAuth($category, $limit, $page, $title, $dateFrom, $dateTo, $is_publish);
             return $this->respondWithData($posts);
         } catch(Exception $err) {
