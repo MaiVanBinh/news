@@ -352,4 +352,13 @@ class PostsServices
         $db->bindParam(':is_public', $is_public, PDO::PARAM_BOOL);
         $db->execute();
     }
+
+    public function fetchListIdPostsOfCategory($categoryId) {
+        $sql = 'SELECT id from posts where category=:categoryId;';
+        $db = $this->connection->prepare($sql);
+        $db->bindParam(':categoryId', $categoryId, PDO::PARAM_INT);
+        $db->execute();
+        $postsId = $db->fetchAll();
+        return $postsId;
+    }
 }

@@ -108,4 +108,12 @@ class CategoryServices
         }
         return false;
     }
+
+    // delete 
+    public function delete($id) {
+        $sql = "DELETE FROM categories WHERE id=:id";
+        $db = $this->connection->prepare($sql);
+        $db->bindParam(':id', $id, PDO::PARAM_INT);
+        $db->execute();
+    }
 }

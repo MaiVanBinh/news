@@ -7,6 +7,4 @@
   RewriteCond %{REQUEST_FILENAME} !-f
   RewriteCond %{REQUEST_FILENAME} !-d
   RewriteRule ^ index.php [QSA,L]
-  Header set Access-Control-Allow-Origin "*"
-  RewriteRule .* - [env=HTTP_AUTHORIZATION:%{HTTP:Authorization}]
 </IfModule>

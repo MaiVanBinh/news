@@ -23,18 +23,19 @@ final class DeteleCatogory extends CategoryAction
                 return $this->respondWithData('Not Auth', 401);
             } 
             $id = $this->resolveArg('id');
-            return $this->respondWithData($id);
 
-            if($this->validator->failed())
-            {
-                $responseMessage = $this->validator->errors;
-                return $this->respondWithData($responseMessage, 404);
+            $userExist = $this->checkUserExist($token['id']);
+            if(!$userExist) {
+                return $this->respondWithData('Not Auth', 401);
             }
-            
-            $title = CustomRequestHandler::getParam($this->request,"title");
 
-            $id = $this->categoryServices->create($title, $token['id']);
-            return $this->respondWithData($id, 201);
+            $posts = $this->checkCateHasPosts($id);
+
+            if($posts) {
+                return $this->respondWithData(['message' => 'Delete Not success', 'Posts of category:' => $posts], 400);
+            }
+            $this->categoryServices->delete($id);
+            return $this->respondWithData('Delete category success', 201);
 
         } catch(Exception $ex) {
             throw new HttpInternalServerErrorException($this->request, $ex->getMessage());
