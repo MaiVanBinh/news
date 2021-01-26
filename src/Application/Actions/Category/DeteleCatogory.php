@@ -35,7 +35,7 @@ final class DeteleCatogory extends CategoryAction
                 return $this->respondWithData(['message' => 'Delete Not success', 'Posts of category:' => $posts], 400);
             }
             $this->categoryServices->delete($id);
-            return $this->respondWithData('Delete category success', 201);
+            return $this->respondWithData('Delete category success', 200);
 
         } catch(Exception $ex) {
             throw new HttpInternalServerErrorException($this->request, $ex->getMessage());
