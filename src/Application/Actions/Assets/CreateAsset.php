@@ -44,7 +44,7 @@ class CreateAsset extends AssetsAction
     public function moveUploadedFile(string $directory, UploadedFileInterface $uploadedFile, string $title)
     {
         $filename = strtotime("now") ."_". $title;
-        $uploadedFile->moveTo($directory . DIRECTORY_SEPARATOR . $filename);
+        $uploadedFile->moveTo($directory . DIRECTORY_SEPARATOR . explode(".", $filename)[0] . '.png');
 
         return $filename;
     }

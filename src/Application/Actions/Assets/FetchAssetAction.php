@@ -8,6 +8,7 @@ class  FetchAssetAction extends AssetsAction {
         $file = __DIR__  . '/../../../../images/' . $fileName . '.png';
         if (!file_exists($file)) {
             die("file:$file");
+            $file = __DIR__  . '/../../../../images/' . $fileName . '.jpg';
         }
         $image = file_get_contents($file);
         if ($image === false) {

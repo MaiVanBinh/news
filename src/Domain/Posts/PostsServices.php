@@ -17,17 +17,20 @@ class PostsServices
     public function fetchPostById($id)
     {
         try {
-            $sql = "SELECT * FROM posts WHERE id=:postId;";
+            $sql = "SELECT p.*, c.title as categoryTitle FROM posts p, categories c WHERE p.id=:postId and p.category=c.id;";
             $db = $this->connection->prepare($sql);
             $db->execute(['postId' => $id]);
-            $post = $db->fetchAll();
-            if (count($post) === 0) {
+            $posts = $db->fetchAll();
+            if (count($posts) === 0) {
                 throw new Exception('Not Found');
             }
-            // $sql = "UPDATE vncreatures.posts SET content='{$post[0]['content']}' WHERE id=:postId;";
-            // $db = $this->connection->prepare($sql);
-            // $db->execute(['postId' => $id]);
-            return $post[0];
+            $post = $posts[0];
+            $sql = "SELECT i.id, i.url FROM images i, post_image p WHERE p.post=:postId and p.image=i.id;";
+            $db = $this->connection->prepare($sql);
+            $db->execute(['postId' => $id]);
+            $images = $db->fetchAll();
+            $post['images'] = $images;
+            return $post;
         } catch (Exception $err) {
             throw new Exception($err->getMessage());
         }
