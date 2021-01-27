@@ -20,8 +20,10 @@ class UpdatePost extends PostsActions
                 $this->validator->validate($this->request, [
                     "title" => v::notEmpty(),
                     "description" => v::notEmpty(),
-                    "content" => v::notEmpty(),
-                    'category' => v::digit()
+                    // "content" => v::notEmpty(),
+                    'category' => v::digit(),
+                    'is_publish' => v::boolType()
+                    
                 ]);
                 if ($this->validator->failed()) {
                     $responseMessage = $this->validator->errors;
@@ -32,7 +34,8 @@ class UpdatePost extends PostsActions
                 $category = (int) CustomRequestHandler::getParam($this->request, "category");
                 $description = CustomRequestHandler::getParam($this->request, "description");
                 $content = CustomRequestHandler::getParam($this->request, "content");
-                
+                $is_publish = CustomRequestHandler::getParam($this->request, "is_publish");
+
                 if(!$this->categoryExist($category)) {
                     return $this->respondWithData("Categories is not exist", 400); 
                 }
@@ -66,7 +69,7 @@ class UpdatePost extends PostsActions
                 }
 
                 // create new Post
-                $this->postsServices->updatePost($id, $title, $category, $description, $content, $token['id']);
+                $this->postsServices->updatePost($id, $title, $category, $description, $content, $is_publish, $token['id']);
                 
                 // link image with post
                 // for($i = 0; $i < count($imagesExists); $i++) {

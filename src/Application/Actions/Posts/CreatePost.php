@@ -17,7 +17,7 @@ class CreatePost extends PostsActions
             $this->validator->validate($this->request, [
                 "title" => v::notEmpty(),
                 "description" => v::notEmpty(),
-                "content" => v::notEmpty(),
+                // "content" => v::notEmpty(),
                 'category' => v::digit(),
                 'is_publish' => v::boolType()
             ]);

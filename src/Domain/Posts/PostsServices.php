@@ -290,7 +290,7 @@ class PostsServices
        
     }
 
-    public function updatePost($id, $title, $category, $description, $content, $userId)
+    public function updatePost($id, $title, $category, $description, $content, $is_publish, $userId)
     {
         date_default_timezone_set('Asia/Ho_Chi_Minh');
         $date = date("Y-m-d H:i:s");
@@ -301,7 +301,8 @@ class PostsServices
                 description=:description, 
                 content=:content, 
                 updated_at=:updated_at,
-                updated_by=:updated_by
+                updated_by=:updated_by,
+                is_publish=:is_publish
                  WHERE id=:id";
 
         $db = $this->connection->prepare($sql);
@@ -312,6 +313,7 @@ class PostsServices
         $db->bindParam(':content', $content, PDO::PARAM_STR);
         $db->bindParam(':updated_by', $userId, PDO::PARAM_INT);
         $db->bindParam(':id', $id, PDO::PARAM_INT);
+        $db->bindParam(':is_publish', $is_publish, PDO::PARAM_BOOL);
         $db->execute();
     }
 
