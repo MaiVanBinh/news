@@ -19,7 +19,7 @@ final class Login extends UserAction
     {
         try {
             $this->validator->validate($this->request, [
-                "email" => v::notEmpty()->email(),
+                "username" => v::notEmpty()->length(5, 20),
                 "password" => v::notEmpty()->alpha()
             ]);
 
@@ -28,10 +28,10 @@ final class Login extends UserAction
                 return $this->respondWithData($responseMessage, 400);
             }
             
-            $email = CustomRequestHandler::getParam($this->request, "email");
+            $username = CustomRequestHandler::getParam($this->request, "username");
             $password = CustomRequestHandler::getParam($this->request, "password");
 
-            $user = $this->userServices->findUserByEmail($email);
+            $user = $this->userServices->findUserByUsername($username);
 
             $verify = password_verify($password, $user['password']);
 
@@ -39,7 +39,7 @@ final class Login extends UserAction
                 throw new HttpNotFoundException($this->request, 'User Not Found');
             }
 
-            $responseMessage = User::generateToken($email, $user['id']);
+            $responseMessage = User::generateToken($username, $user['id']);
 
             return $this->respondWithData(['token' =>$responseMessage, 'expirationDate' => 3600], 200);
             

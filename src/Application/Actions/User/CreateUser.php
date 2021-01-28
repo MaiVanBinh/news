@@ -25,8 +25,8 @@ final class CreateUser extends UserAction
             } 
             
             $this->validator->validate($this->request, [
-                "username"=>v::notEmpty(),
-                "email"=>v::notEmpty()->email(),
+                "username"=>v::notEmpty()->length(5, 20),
+                // "email"=>v::notEmpty()->email(),
                 "password"=>v::notEmpty()->alpha('1','2','3','4','5', '6', '7', '8', '9', '0')->Length(8, 16)
             ]);
             

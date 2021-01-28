@@ -51,10 +51,10 @@ class UserServices
         }
     }
 
-    public function findUserByEmail($email) {
-        $sql = "SELECT id, username, email, password FROM users WHERE users.email=:email;";
+    public function findUserByUsername($username) {
+        $sql = "SELECT id, username, password FROM users WHERE users.username=:username;";
         $db = $this->connection->prepare($sql);
-        $db->execute(['email' => $email]);
+        $db->execute(['username' => $username]);
         $users = $db->fetchAll();
         if(count($users) > 0) {
             return $users[0];

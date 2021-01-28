@@ -27,7 +27,6 @@ class FetchPostsAuth extends PostsActions
             $total = $posts['total'];
             $maxPage = ceil($total / $limit);
             $hasPrev = $page == 1 || $page -1 > $maxPage ? false : true;
-            
             $hasNext = $page >= $maxPage ? false : true;
             $posts['pages'] = ['total' => $total, 'current' => $page, 'prev' => $page - 1, 'next' => $page + 1, 'hasPrev' => $hasPrev, 'hasNext' => $hasNext];
             return $this->respondWithData($posts);
