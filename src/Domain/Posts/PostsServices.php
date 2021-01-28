@@ -275,7 +275,16 @@ class PostsServices
                 $db->bindParam(':id', $id, PDO::PARAM_INT);
                 $db->execute();
                 $images = $db->fetchAll();
+
+                $category = (int) $posts[$i]['category'];
+                $sql = "SELECT title as categoryTitle from categories  where id = {$category};";
+                $db = $this->connection->prepare($sql);
+                $db->bindParam(':id', $id, PDO::PARAM_INT);
+                $db->execute();
+                $categoryTitle = $db->fetchAll()[0]['categoryTitle'];
+
                 array_push($postsUpdate, [
+                    'categoryTitle' => $categoryTitle,
                     'image' => $images,
                     'is_publish' => $posts[$i]['is_publish'],
                     'id' => $posts[$i]['id'],

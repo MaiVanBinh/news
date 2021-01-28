@@ -34,21 +34,20 @@ class CreatePost extends PostsActions
             
             // get list images
             $images = CustomRequestHandler::getParam($this->request, "images");
-            $imagesExists = [];
+
             for($i = 0; $i < count($images); $i++) {
-                $isImageExist = (int)$this->checkImageExistByUrl($images[$i]);
-                array_push($imagesExists, $isImageExist);
+                $isImageExist = (int)$this->checkImageExistById($images[$i]);
                 if(!$isImageExist) {
-                    return $this->respondWithData("Link Image: {$images[$i]} is not exits", 400);
+                    return $this->respondWithData("Image: {$images[$i]} is not exits", 400);
                 }
             }
             // create new Post
             $newId = $this->postsServices->createPost($title, $category, $description, $content, $token['id'], $is_publish);
             
             // link image with post
-            for($i = 0; $i < count($imagesExists); $i++) {
-                $this->PIServices->linkPostWithImage($newId, $imagesExists[$i], $token['id']);
-                $this->assetsServices->useImage($imagesExists[$i], true);
+            for($i = 0; $i < count($images); $i++) {
+                $this->PIServices->linkPostWithImage($newId, $images[$i], $token['id']);
+                $this->assetsServices->useImage($images[$i], true);
             }
             $newPost = $this->postsServices->fetchPostById($newId);
             return $this->respondWithData($newPost);
