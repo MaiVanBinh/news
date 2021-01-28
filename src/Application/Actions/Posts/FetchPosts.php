@@ -15,7 +15,17 @@ class FetchPosts extends PostsActions {
             $title = array_key_exists('title', $query) && $query['title'] ? $query['title'] : null;
             $dateFrom = array_key_exists('dateFrom', $query) && $query['dateFrom'] ? $query['dateFrom'] : null;
             $dateTo = array_key_exists('dateTo', $query) && $query['dateTo'] ? $query['dateTo'] : null;
+
+            
             $posts = $this->postsServices->fetchPosts($category, $limit, $page, $title, $dateFrom, $dateTo);
+
+             // get page
+             $total = $posts['total'];
+             $maxPage = ceil($total / $limit);
+             $hasPrev = $page == 1 || $page -1 > $maxPage ? false : true;
+             
+             $hasNext = $page >= $maxPage ? false : true;
+             $posts['pages'] = ['total' => $total, 'current' => $page, 'prev' => $page - 1, 'next' => $page + 1, 'hasPrev' => $hasPrev, 'hasNext' => $hasNext];
             return $this->respondWithData($posts);
         } catch(Exception $err) {
             throw new HttpInternalServerErrorException($this->request, $err->getMessage());

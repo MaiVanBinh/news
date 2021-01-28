@@ -1,12 +1,15 @@
 <?php
 
 namespace App\Application\Actions\Category;
+
 use App\Application\Actions\Category\CategoryAction;
 use Exception;
 use Slim\Exception\HttpInternalServerErrorException;
 
-class FetchCategory extends CategoryAction {
-    public function action() {
+class FetchCategory extends CategoryAction
+{
+    public function action()
+    {
         try {
             $query = $this->request->getQueryParams();
 
@@ -19,8 +22,16 @@ class FetchCategory extends CategoryAction {
             $limit = array_key_exists('limit', $query) && $query['limit'] ?  $query['limit'] : 1;
             $isAll = array_key_exists('isAll', $query) ?  true : false;
             $category = $this->categoryServices->fetchCategory($title, $from, $to, $page, $limit, $isAll);
+
+            // get page
+            $total = $category['total'];
+            $maxPage = ceil($total / $limit);
+            $hasPrev = $page == 1 || $page - 1 > $maxPage ? false : true;
+            $hasNext = $page >= $maxPage ? false : true;
+            $category['pages'] = ['total' => $total, 'current' => $page, 'prev' => $page - 1, 'next' => $page + 1, 'hasPrev' => $hasPrev, 'hasNext' => $hasNext];
+
             return $this->respondWithData($category);
-        } catch(Exception $err) {
+        } catch (Exception $err) {
             throw new HttpInternalServerErrorException($this->request, $err->getMessage());
         }
     }
